@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+/***************************************************html and body*************************************************************/
+
+/*-----RIECHEL FABRIGAS (Content and Structure)---*/
+
+body{
+      animation: colorchange 35s; 
+      -webkit-animation: colorchange 35s; 
+    }
+
+    @keyframes
+    {
+      0%   {background-color: #99B898;}
+      25%  {background-color: #FECEA8;}
+      50%  {background-color: #FF847C;}
+      75%  {background-color: #E84A5F;}
+      100% {background-color: #2A363B;}
+    }
+
+    @-webkit-keyframes colorchange 
+    {
+      0%   {background-color: #99B898;}
+      25%  {background-color: #FECEA8;}
+      50%  {background-color: #FF847C;}
+      75%  {background-color: #E84A5F;}
+      100% {background-color: #2A363B;}
+    }
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 170%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: gray;
+  font-size: 18px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: #FECEA8;
+  color: white;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: black;
+  }
+
