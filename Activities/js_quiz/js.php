@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    <div class="timer">
+        <text>Time:<text id="time0012">200</text></text>
+    </div>
     <?php
     $conn = mysqli_connect("localhost", "root", "", "quizwebtech");
 
@@ -43,8 +46,24 @@
       <input type="radio" name="ans2" value="<?=$a2?>"><?=$a2?><br>
       <input type="radio" name="ans3" value="<?=$a3?>"><?=$a3?><br>
       <input type="radio" name="ans4" value="<?=$a4?>"><?=$a4?><br>
-      <Input type = "submit" Name = "submit" Value = "Answer">
+        <Input type = "submit" Name = "submit" Value = "Answer"></Input>
     </form>
+    
+    <script>
+        var c = 200;
+        function timer001 () {
+            c = c-1;
+            if (c < 200){
+                time001.innerHTML = c;
+            }
+
+            if(c < 1) {
+                window.clearInterval(update);
+            }
+        }
+        
+        update = setInterval("timer001()", 1000);
+    </script>
 
 </body>
 

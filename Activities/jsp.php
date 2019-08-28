@@ -6,7 +6,10 @@
     <body style="background-color: #99B898">
         <div class="quiz-content">
             <h1>TRUE OR FALSE</h1>
-            <form action="jsp.php" method="post">
+            <div class="timer">
+                <text>Time:<text id="time001">200</text></text>
+            </div>
+            <form action="jsp.php" method="post"></form>
                 <?php
                     $GLOBALS['score'] = 0;
                     $conn = mysqli_connect("localhost", "root", "", "quizwebtech");
@@ -46,6 +49,22 @@
         </div>
         <br>
 
-<a href="../index.html"><button class="btn">Home</button></a>
+        <a href="../index.html"><button class="btn">Home</button></a>
+        <script>
+            var c = 200;
+
+            function timer001 () {
+                c = c-1;
+                if (c < 200){
+                    time001.innerHTML = c;
+                }
+
+                if(c < 1) {
+                    window.clearInterval(update);
+                }
+            }
+
+            update = setInterval("timer001()", 1000);
+        </script>
     </body>
 </html>

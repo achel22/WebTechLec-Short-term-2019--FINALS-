@@ -2,65 +2,141 @@
 <html>
 	<head>
 		<title>Web Technologies FINALS</title>
-			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial scale=1">
-			<link rel="stylesheet" href="styles/cstyle.css">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<!--(Structure & Contents)-RIECHEL FABRIGAS----->
-<body>
-	<h1>PICK YOUR ACTIVITY</h1>
-	
-	<div class="row">
-    <div class="column">
-  	<div class="container">
-    <img src="images/1.jpg" alt="Forest" style="width:100%">
-    <div class="overlay">
-    	<div class="text"> <p align="Center">HTML</p>
-        <p align="Center">(True or False)</p>
-    	</div>
-    </div>
-  </div>
-    <a href="jsp.php"><button class="btn">START</button></a>
-</div>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        <link rel="stylesheet" href="styles/stylers.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <!--(Structure & Contents)-RIECHEL FABRIGAS----->
+    <body>
+        <h1>PICK YOUR ACTIVITY</h1>
+
+        <div class="row">
+            <div class="column">
+                <div class="container">
+                    <img src="images/1.jpg" alt="Forest" style="width:100%">
+                    <div class="overlay">
+                        <div class="text"> <p align="Center">HTML</p>
+                        <p align="Center">(True or False)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button data-pop-target="#pop" class="btn">START</button>
+                
+                <div class="pop" id="pop">
+                    <div class="pop-header">
+                        <div class="title">Be Advised!</div>
+                        <button data-close-button class="pop-close">&times;</button>
+                    </div>
+                    <div class="pop-content">
+                        Upon clicking "START" the quiz will start immediately and the timer will start counting down. You will be given 200 seconds to finish the quiz. 
+                        <a href="jsp.php"><button class="btn">START</button></a>   
+                    </div>
+                </div>
+                <div id="overlayer"></div>
+            </div>
 
 
-  <div class="column">
-  	  <div class="container">
-  <img src="images/5.jpg" alt="Forest" style="width:100%">
-      <div class="overlay">
-    	<div class="text"><p>HTML to Server Side</p>
-        <p align="Center">(Acronym)</p>
-    	</div>
-    </div>
-  </div>
-  <a href="identification.php"><button class="btn">START</button></a>
-</div>
+            <div class="column">
+                <div class="container">
+                    <img src="images/5.jpg" alt="Forest" style="width:100%">
+                    <div class="overlay">
+                        <div class="text"><p>HTML to Server Side</p>
+                            <p align="Center">(Acronym)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button data-pop-target="#poper" class="btn">START</button>
+                
+                <div class="pop" id="poper">
+                    <div class="pop-header">
+                        <div class="title">Be Advised!</div>
+                        <button data-closer-button class="pop-closer">&times;</button>
+                    </div>
+                    <div class="pop-content">
+                        Upon clicking "START" the quiz will start immediately and the timer will start counting down. You will be given 200 seconds to finish the quiz. 
+                        <a href="identification.php"><button class="btn">START</button></a>
+                    </div>
+                </div>
+                <div id="overlayer"></div>
+            </div>
 
 
- <div class="column">
-    <div class="container">
-    <img src="images/2.jpg" style="width:100%">
-    <div class="overlay">
-      <div class="text"><p align="center">JavaScript</p>
-        <p align="center">(Multiple Choice)</p>
-      </div>
-    </div>
-  </div>
-  <a href="js_quiz/js.php"><button class="btn">START</button></a>
-</div>
-</div>
+            <div class="column">
+                <div class="container">
+                    <img src="images/2.jpg" style="width:100%">
+                    <div class="overlay">
+                        <div class="text"><p align="center">JavaScript</p>
+                            <p align="center">(Multiple Choice)</p>
+                        </div>
+                    </div>
+                </div>
+                <button data-pop-target="#popers" class="btn">START</button>
+                
+                <div class="pop" id="popers">
+                    <div class="pop-header">
+                        <div class="title">Be Advised!</div>
+                        <button data-close-button class="pop-close">&times;</button>
+                    </div>
+                    <div class="pop-content">
+                        Upon clicking "START" the quiz will start immediately and the timer will start counting down. You will be given 200 seconds to finish the quiz. 
+                        <a href="js_quiz/js.php"><button class="btn">START</button></a>
+                    </div>
+                </div>
+                <div id="overlayer"></div>
+            </div>
+        </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-<a href="../index.html"><button class="btn">Home</button></a>
-</div>
-</div>
-</div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="container">
+            <a href="../index.html"><button class="btn">Home</button></a>
+        </div>
+        
+        <script>
+            const openPopButtons = document.querySelectorAll('[data-pop-target]')
+            const closePopButtons = document.querySelectorAll('[data-close-button]')
+            const overlay = document.getElementById('overlayer')
+            
+            openPopButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const pop = document.querySelector(button.dataset.popTarget)
+                    openPop(pop)
+                })
+            })
+            
+            closePopButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const pop = button.closest('.pop')
+                    closePop(pop)
+                })
+            })
+            
+            overlay.addEventListener('click', () => {
+                const pops = document.querySelectorAll('.pop.active')
+                pops.forEach(pop => {
+                    closePop(pop)
+                })
+            })
+            
+            function openPop(pop) {
+                if (pop == null) return
+                pop.classList.add('active');
+                overlay.classList.add('active');
+            }
+            
+            function closePop(pop) {
+                if (pop == null) return
+                pop.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        </script>
 
-</body>
-</html>
+    </body>
+</html> 
