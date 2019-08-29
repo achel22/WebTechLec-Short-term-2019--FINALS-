@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+//STYLE THIS CHANGE FONT
 <html>
     <head>
         <title>TRUE OR FALSE</title>
@@ -7,7 +8,7 @@
         <div class="quiz-content">
             <h1>TRUE OR FALSE</h1>
             <div class="timer">
-                <p>Time:<p id="time001">200</p></p>
+                <text>Time:<text id="time001">200</text></text>
             </div>
             <form action="jsp.php" method="post">
                 <?php
@@ -37,6 +38,7 @@
                                 $GLOBALS['score'] += 2;
                             }
                         }
+                        //STYLE THIS
                         echo "<div style='z-index: 3; position: fixed; bottom: 700px; left: 850px; padding: 50px; background-color: white;'>";
                         echo "<h3>Your score is:</h3>";
                         echo "<p id='displayed' style='text-align: center;'>" . $GLOBALS['score'] . "</p>";
@@ -50,12 +52,18 @@
         <br>
         <a href="../index.html"><button class="btn">Home</button></a>
         <script>
-            if(document.getElementById('displayed').innerHTML) {
+            if(document.getElementById('displayed')) {
                 document.getElementById('submit').style.display = "none";
             }
 
-            function timer001 () {
+            var c = 200;
+            time001.innerHTML = c;
+            function timer001() {
                 c = c-1;
+                if (c==0) {
+                    alert('time is up');
+                    window.location.href = 'choices.html';
+                }
                 if (c < 200){
                     time001.innerHTML = c;
                 }

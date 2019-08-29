@@ -1,3 +1,4 @@
+//STYLE THIS WHOLE PAGE
 <html>
     <head>
         <meta charset="utf-8">
@@ -13,8 +14,14 @@
             <text>Time:<text id="time002">200</text></text>
         </div>
 	 	<p id="question"></p>
-			<input type="text" id="answer">
-			<button type="button" class="btn btn-primary" onclick="loadOther()"> Submit </button>
+		<input type="text" id="answer">
+		<button type="button" class="btn btn-primary" onclick="loadOther()"> Submit </button>
+        
+        <div id = 'scoreBox' style = 'display: none; z-index: 3; position: fixed; bottom: 700px; left: 850px; padding: 50px; background-color: white;'>
+            <h3>Your score is:</h3>
+            
+            <p id = 'score' style = 'text-align: center;'></p>
+        </div>
 
     <?php
     $conn = mysqli_connect("localhost", "root", "", "quizwebtech");
@@ -59,16 +66,23 @@
             index++;
             if(index == y.length) {
                 console.log(points);
-                return;
+                scoreBox.style.display = "block"
+                score.innerHTML = ""+points;
             } else {
                 document.getElementById('question').innerHTML = y[index].qst;
                 document.getElementById('answer').value = "";
             }
 
+            
+
         }
         
-        function timer001 () {
+        function timer001() {
             c = c-1;
+            if (c==0) {
+                alert('time is up');
+                window.location.href = 'choices.html'
+            }
             if (c < 200){
                 time002.innerHTML = c;
             }

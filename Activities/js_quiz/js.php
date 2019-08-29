@@ -9,7 +9,7 @@
 
 <body>
     <div class="timer">
-        <text>Time:<text id="time0012">200</text></text>
+        <text>Time:<text id="time001">200</text></text>
     </div>
     <?php
     $conn = mysqli_connect("localhost", "root", "", "quizwebtech");
@@ -17,20 +17,19 @@
     //fetches the the first question from the database js_quiz
     $getQuestion = "SELECT * from tblQuestion";
     $result_getQuestion = mysqli_query($conn, $getQuestion);
-    $row_getQuestion = mysqli_fetchArray($result_getQuestion);
+    $row_getQuestion = mysqli_fetch_array($result_getQuestion);
 
     $correctAns = $row_getQuestion['correctAns'];
     $selected_radio = $_POST['response'];
 
     if ($selected_radio == $correctAns)
           echo "Correct!";
-      else
-          echo "Wrong. The answer should be $correctAns.";
+      
 
     //fetches a new question by random from the database
     $getQuestion = "SELECT * FROM tblQuestion ORDER BY rand() LIMIT 1";
     $result_getQuestion = mysqli_query($conn, $getQuestion);
-    $row_getQuestion = mysqli_fetchArray($result_getQuestion);
+    $row_getQuestion = mysqli_fetch_array($result_getQuestion);
 
     $id = $row_getQuestion['id'];
     $question = $row_getQuestion['question'];
@@ -46,13 +45,17 @@
       <input type="radio" name="ans2" value="<?=$a2?>"><?=$a2?><br>
       <input type="radio" name="ans3" value="<?=$a3?>"><?=$a3?><br>
       <input type="radio" name="ans4" value="<?=$a4?>"><?=$a4?><br>
-        <Input type = "submit" Name = "submit" Value = "Answer"></Input>
+        <input type = "submit" Name = "submit" Value = "Answer">
     </form>
     
     <script>
         var c = 200;
         function timer001 () {
             c = c-1;
+            if (c==0) {
+                alert('time is up');
+                window.location.href = '../choices.html'
+            }
             if (c < 200){
                 time001.innerHTML = c;
             }
