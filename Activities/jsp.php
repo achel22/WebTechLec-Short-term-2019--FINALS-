@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-//STYLE THIS CHANGE FONT
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <title>TRUE OR FALSE</title>
     </head>
@@ -13,7 +13,7 @@
             <form action="jsp.php" method="post">
                 <?php
                     $GLOBALS['score'] = 0;
-                    $conn = mysqli_connect("localhost", "root", "", "quizwebtech");
+                    $conn = mysqli_connect("localhost", "root", "", "finalwebtechactivity");
                     $query = $conn -> query("SELECT * FROM answers ORDER BY rand()");
                     
                     $GLOBALS['ans'] = array();
@@ -39,15 +39,18 @@
                             }
                         }
                         //STYLE THIS
-                        echo "<div style='z-index: 3; position: fixed; bottom: 700px; left: 850px; padding: 50px; background-color: white;'>";
+                        echo "<div style='z-index: 3; position: fixed; bottom: 50%; left: 43%; padding: 50px; background-color: white;'>";
                         echo "<h3>Your score is:</h3>";
                         echo "<p id='displayed' style='text-align: center;'>" . $GLOBALS['score'] . "</p>";
+                        echo "<a href='../index.html'><button class='btn'>Home</button></a>";
                         echo "</div>";
+                        
                     }
                     if(isset($_POST['submit'])) {
                         compute();
                     }
                 ?>
+            </form>
         </div>
         <br>
         <a href="../index.html"><button class="btn">Home</button></a>

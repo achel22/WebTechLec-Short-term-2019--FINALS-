@@ -24,7 +24,7 @@
         </div>
 
     <?php
-    $conn = mysqli_connect("localhost", "root", "", "quizwebtech");
+    $conn = mysqli_connect("localhost", "root", "", "finalwebtechactivity");
     $query= $conn -> query("SELECT * FROM iden ORDER BY rand() LIMIT 20");
     ?>
     <script>

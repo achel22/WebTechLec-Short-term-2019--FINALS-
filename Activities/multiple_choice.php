@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    </meta charset="utf-8">
+    
     <title>Multiple Choice</title>
 </head>
 
@@ -15,16 +15,13 @@
     <form action="multiple_choice.php" method="post"></form>
 
     <?php
-    $GLOBALS['score'] = 0;
-    $conn = mysqli_connect("localhost", "root", "", "quizwebtech");
-    $query = mysql_query("SELECT * FROM tblQuestion ORDER BY rand()");
+    //$GLOBALS['score'] = 0;
+    $conn = mysqli_connect("localhost", "root", "", "finalwebtechactivity");
+    $query = mysqli_query("SELECT * FROM tblQuestion");
 
     $GLOBALS['correctAns'] = array();
-    while ($row = mysql_fetch_assoc($query)) {
-        echo $row['ansA'] . '<input type="radio" name="ans_A" value="ansA"><br>';
-        echo $row['ansB'] . '<input type="radio" name="ans_A" value="ansA"><br>';
-        echo $row['ansC'] . '<input type="radio" name="ans_A" value="ansA"><br>';
-        echo $row['ansD'] . '<input type="radio" name="ans_A" value="ansA"><br>';
+    while ($row = mysqli_fetch_assoc($query)) {
+        echo $row['correctAns'] . '<input type="radio" name="correctAns" value="correctAns"><br>';
         $next = array($row['id'], $row['question']);
         array_push($GLOBALS['correctAns'], $next);
     }
@@ -32,29 +29,29 @@
     echo "<input type='submit' name='submit' value='Submit'>";
     echo "</form>";
 
-    $var = "SELECT FROM tblQuestion WHERE correctAns ='correctAns'";
+    $var = "SELECT * FROM tblQuestion WHERE correctAns ='correctAns'";
 
-    if (isset($var)) {
-        echo 'You got it right!';
-    } else {
-        echo 'Your answer is wrong.';
-    }
+   // if (isset($var)) {
+     //   echo 'You got it right!';
+    //} else {
+      //  echo 'Your answer is wrong.';
+    //}
 
-    function compute() {
-        if($GLOBALS['score'] != 0) {
-            $GLOBALS['score'] = 0;
-        }
-        foreach($GLOBALS['correctAns'] as $val) {
-            if($val[1] == isset($_POST[$val[0]])) {
-                $GLOBALS['score'] += 2;
-            }
+    //function compute() {
+       // if($GLOBALS['score'] != 0) {
+       //     $GLOBALS['score'] = 0;
+        //}
+       // foreach($GLOBALS['correctAns'] as $val) {
+        //    if($val[1] == isset($_POST[$val[0]])) {
+          //      $GLOBALS['score'] += 2;
+            //}
 
-        }
-        echo "<p>" . $GLOBALS['score'] . "</p>";
-    }
-    if(isset($_POST['submit'])) {
-        compute();
-    }
+        //}
+       // echo "<p>" . $GLOBALS['score'] . "</p>";
+    //}
+    //if(isset($_POST['submit'])) {
+     //   compute();
+   // }
 ?>
 </div>
 
