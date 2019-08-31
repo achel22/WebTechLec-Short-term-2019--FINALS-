@@ -17,7 +17,7 @@
 		<input type="text" id="answer">
 		<button type="button" class="btn btn-primary" onclick="loadOther()"> Submit </button>
         
-        <div id = 'scoreBox' style = 'display: none; z-index: 3; position: fixed; bottom: 700px; left: 850px; padding: 50px; background-color: white;'>
+        <div id = 'scoreBox' style = 'display: none; z-index: 3; position: fixed; bottom: 50%; left: 43%; padding: 50px; background-color: white;'>
             <h3>Your score is:</h3>
             
             <p id = 'score' style = 'text-align: center;'></p>
