@@ -13,9 +13,9 @@
         <div class="timer">
             <text>Time:<text id="time002">200</text></text>
         </div>
-	 	<p id="question"></p>
-		<input type="text" id="answer">
-		<button type="button" class="btn btn-primary" onclick="loadOther()"> Submit </button>
+	 	<p style="text-align:center; margin-top: 12%;" id="question"></p>
+		<p style="text-align: center;"><input type="text" id="answer">
+		<button type="button" class="btn btn-primary" onclick="loadOther()"> Submit </button></p>
         
         <div id = 'scoreBox' style = 'display: none; z-index: 3; position: fixed; bottom: 50%; left: 43%; padding: 50px; background-color: white;'>
             <h3>Your score is:</h3>
