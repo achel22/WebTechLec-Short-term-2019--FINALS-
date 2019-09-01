@@ -1,10 +1,15 @@
+<!--author @Chazz Saley and Kyle Mangahas-->
+<!--designer and collaborator @Riechel Angeli Fabrigas-->
+<!--helped in implementing the dbase @Mitchelle Buen-->
+
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <title>TRUE OR FALSE</title>
+        <link rel="stylesheet" href="styles/activities.css">
     </head>
-    <body style="background-color: #99B898">
+    <body style="background-color: #88ACE0">
         <div class="quiz-content">
             <h1>TRUE OR FALSE</h1>
             <div class="timer">
@@ -13,7 +18,7 @@
             <form action="jsp.php" method="post">
                 <?php
                     $GLOBALS['score'] = 0;
-                    $conn = mysqli_connect("localhost", "root", "", "original");
+                    $conn = mysqli_connect("localhost", "root", "", "finals");
                     $query = $conn -> query("SELECT * FROM answers ORDER BY rand()");
                     
                     $GLOBALS['ans'] = array();
@@ -53,7 +58,10 @@
             </form>
         </div>
         <br>
+        <br>
+         <div class="container">
         <a href="../index.html"><button class="btn">Home</button></a>
+        </div>
         <script>
             if(document.getElementById('displayed')) {
                 document.getElementById('submit').style.display = "none";

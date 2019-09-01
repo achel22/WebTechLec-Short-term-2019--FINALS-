@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+/***************************************************html and body*************************************************************/
+/*-----RIECHEL FABRIGAS (Content and Structure)---*/
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #fbfbf8;
+  }
+
+ * {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container .btn {
+  position: absolute;
+  top: 100%;
+  left: 160%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: gray;
+  font-size: 18px;
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: #9AC0CD;
+  color: white;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.row {
+  display: flex;
+}
+
+

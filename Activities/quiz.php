@@ -1,8 +1,9 @@
 <!--Multiple Choice Type Quiz-->
 <!--author @Keilly Ruth Panis-->
-
+<!--designer and collaborator @Riechel Angeli Fabrigas-->
+<!--helped in implementing the dbase @Mitchelle Buen-->
 <?php
-  $conn = mysqli_connect("localhost", "root", "", "orig");
+  $conn = mysqli_connect("localhost", "root", "", "finals");
   $query = mysqli_query($conn, "SELECT * FROM tblquestion ORDER BY rand() limit 3");
   $multiple_json = array();
 
@@ -23,10 +24,11 @@
     </meta charset="utf-8">
     <title>Multiple Choice Quiz</title>
     <link rel="stylesheet" href="./quiz-style.css">
+    <link rel="stylesheet" href="styles/activities.css">
 </head>
 
-<body>
-  <h1>Multiple Choice Quiz</h1>
+<body style="background-color: #7093DB">
+  <h1 style="text-align:center; color:#fbfbf8">Multiple Choice Quiz</h1>
       <div id="countdown"></div>
       <br>
       <br>
@@ -39,6 +41,15 @@
       <button id="previous">Previous Question</button>
       <button id="next">Next Question</button>
       <button id="submit">Submit Quiz Answers</button>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+        <div class="container">
+        <a href="../index.html"><button class="btn">Home</button></a>
+        </div>
 
 <script>
 var timeleft = 200;

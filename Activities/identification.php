@@ -1,7 +1,10 @@
-//STYLE THIS WHOLE PAGE
+<!--author @Zealbert Bayle and Kyle Mangahas-->
+<!--designer and collaborator @Riechel Angeli Fabrigas-->
+<!--helped in implementing the dbase @Mitchelle Buen-->
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="styles/activities.css">
         <title>Identification(Acronyms)</title>
         <script>
             window.onload = function () {
@@ -9,11 +12,13 @@
             }
         </script>
     </head>
-    <body>
+    <body style="background-color: #8F8FBC">
         <div class="timer">
             <text>Time:<text id="time002">200</text></text>
         </div>
-	 	<p style="text-align:center; margin-top: 12%;" id="question"></p>
+        <h1> ACRONYM</h1>
+        <p style="text-align:center; color:#fbfbf8">Give the meaning of each Acronym</p>
+	 	<p style="text-align:center; margin-top: 10%;" id="question"></p>
 		<p style="text-align: center;"><input type="text" id="answer">
 		<button type="button" class="btn btn-primary" onclick="loadOther()"> Submit </button></p>
         
@@ -22,9 +27,22 @@
             
             <p id = 'score' style = 'text-align: center;'></p>
         </div>
-
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+        <a href="../index.html"><button class="btn">Home</button></a>
+        </div>
     <?php
-    $conn = mysqli_connect("localhost", "root", "", "original");
+    $conn = mysqli_connect("localhost", "root", "", "finals");
     $query= $conn -> query("SELECT * FROM iden ORDER BY rand() LIMIT 20");
     ?>
     <script>
