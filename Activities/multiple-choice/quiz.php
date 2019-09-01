@@ -2,7 +2,7 @@
 <!--author @Keilly Ruth Panis-->
 
 <?php
-  $conn = mysqli_connect("localhost", "root", "", "tblquestions");
+  $conn = mysqli_connect("localhost", "root", "", "original");
   $query = mysqli_query($conn, "SELECT * FROM tblquestion ORDER BY rand() limit 3");
   $multiple_json = array();
 
@@ -41,7 +41,7 @@
       <button id="submit">Submit Quiz Answers</button>
 
 <script>
-var timeleft = 1200;
+var timeleft = 200;
 var downloadTimer = setInterval(function(){
   document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
   timeleft -= 1;

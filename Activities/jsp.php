@@ -13,7 +13,7 @@
             <form action="jsp.php" method="post">
                 <?php
                     $GLOBALS['score'] = 0;
-                    $conn = mysqli_connect("localhost", "root", "", "finalwebtechactivity");
+                    $conn = mysqli_connect("localhost", "root", "", "original");
                     $query = $conn -> query("SELECT * FROM answers ORDER BY rand()");
                     
                     $GLOBALS['ans'] = array();
